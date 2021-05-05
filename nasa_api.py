@@ -124,7 +124,7 @@ def parse_args():
     parser.add_argument('-o', '--output',
                         choices=['csv', 'db'],
                         dest='output_to',
-                        default='db',
+                        default='csv',
                         help='By default, script will write to CSV. Modify to db if needed')
     result = parser.parse_args()
     return result
