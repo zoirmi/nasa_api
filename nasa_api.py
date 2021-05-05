@@ -43,6 +43,7 @@ def response_parser(pyval_response, threshold_size):
                             get_orig_size = check_image_size(requests.get(metadata_url).json()[0], threshold_size)
                             if get_orig_size:
                                 result.append([each_result_data['nasa_id'], get_orig_size, url_to_orig])
+                                print("Found possible result: {name}".format(name=each_result_data['nasa_id']))
                     except:
                         print("Ignoring irrelevant data while parsing")
     return result
@@ -56,7 +57,7 @@ def check_image_size(url, min_size):
         else:
             return False
     except:
-        print("Failed to extract content-length from header")
+        print("Failed to extract content-length from header {header}".format(header=url))
         exit()
 
 
